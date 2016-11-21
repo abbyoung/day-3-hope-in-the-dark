@@ -1,10 +1,10 @@
 var option = 1;
-var quote = "We don't know what is going to happen, or how, or when, and that very uncertainty is the space of hope.";
-quote.toUpperCase();
+var quote = '\"We don\'t know what is going to happen, or how, or when, and that very uncertainty is the space of hope.\"';
+var attribution = "[rebecca solnit]";
 var bg2, bg3;
 
 function setup() {
-  createCanvas(710, 400);
+  createCanvas (windowWidth, windowHeight);
   background(0);
   strokeWeight(20);
   frameRate(10);
@@ -20,13 +20,14 @@ function draw() {
       line(0, i, width, i);
     }
 
-    fill(0);
-    stroke(255);
-    strokeWeight(3);
+    fill(255);
     textAlign(LEFT);
     textSize(50);
     textFont("Helvetica");
-    text(quote, 30, 60, width-20, height-20);
+    text(quote, width/4, height/4, width/2, height/2);
+
+    textSize(20);
+    text(attribution, width/4, height/6, width/2, height/2);
   }
 
   else if (option == 2){
@@ -43,8 +44,6 @@ function draw() {
   else if (option == 3){
     background(bg3);
   }
-
-
 }
 
 function mousePressed(){
@@ -52,4 +51,8 @@ function mousePressed(){
   if (option > 3){
     option = 1;
   }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
